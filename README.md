@@ -64,14 +64,12 @@ Common Issues
 
 NLTK Resources Not Found:
 
-bash
-Copy
+
 # Set permanent NLTK path (Windows)
 setx NLTK_DATA "%USERPROFILE%\nltk_data"
 Module Not Found Errors:
 
-bash
-Copy
+
 # Force reinstall all dependencies
 pip install --force-reinstall -r requirements.txt
 VS Code Specific Issues:
@@ -80,4 +78,78 @@ Press Ctrl+Shift+P → "Python: Select Interpreter"
 
 
 
+Process to input custom text into your program and get predictions:
 
+#Custom Text Prediction
+**Run with Command-Line Input**
+```bash
+python predict.py "Your text here with numbers 123 and symbols #@!"
+```
+
+Or Interactive Mode
+```bash
+python predict.py
+```
+# Then type/paste your text
+
+Example Output
+```bash
+Cleaned Text: text numbers symbols
+Predicted Class: Class 0
+```
+
+---
+
+### **3. Workflow for Users**
+1. **Train Model First** (One-Time)
+
+```bash
+python train_model.py
+```
+Make Predictions
+
+```bash
+# Single prediction
+python predict.py "Heart disease risks in modern healthcare"
+```
+# Batch predictions (create a file later)
+# (You can extend this as needed)
+
+4. Input Handling Explained
+Text Cleaning Pipeline:
+```bash
+Input: "COVID-19 VACCINE updates: 50% efficacy reported!"
+Cleaned Text: ['covid', 'vaccine', 'updates', 'efficacy', 'reported']
+```
+Prediction Process:
+Uses same TF-IDF vectorizer from training
+Applies saved Logistic Regression model
+Returns class (0 or 1) based on training categories
+
+5. Supported Input Formats
+Method	Example	Use Case
+CLI Argument	python predict.py "Your text"	Quick single predictions
+Interactive	python predict.py + type text	Multi-line inputs
+File Input (Add Later)	python predict.py < input.txt	Batch processing
+
+6. Error Handling
+The script automatically:
+Converts all text to lowercase
+Removes special characters/numbers
+Handles empty input
+Verifies model files exist
+Full Execution Demo
+
+# Train first (if not done)
+```bash
+python train_model.py
+```
+```bash
+# Test prediction
+python predict.py "New graphics card with 8GB VRAM"
+```
+Output
+```bash
+Cleaned Text: new graphics card vram
+Predicted Class: Class 0  # comp.graphics
+```

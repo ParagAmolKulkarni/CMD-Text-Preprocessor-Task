@@ -1,9 +1,7 @@
-Here’s your **fully updated `README.md`** – clean, Jupyter-Notebook based, and perfectly tailored for your new structure:
 
----
-
-# CMD-Text-Preprocessor-Task
-
+# Task 1
+ Create a Python script to preprocess and clean text input. This entails separating sentences into words (tokenization), deleting special characters, and changing text to lowercase. In order to prepare raw text data for subsequent activities, such as embedding generation, this is essential
+   
 A **command-line-compatible** and **Jupyter-based** text preprocessing and classification system with automatic environment setup and **92% accuracy** on news article classification.
 
 [![Python Version](https://img.shields.io/badge/Python-3.08-blue)](https://www.python.org/)  

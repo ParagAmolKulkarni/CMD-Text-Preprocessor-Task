@@ -6,7 +6,7 @@ Here’s your **fully updated `README.md`** – clean, Jupyter-Notebook based, a
 
 A **command-line-compatible** and **Jupyter-based** text preprocessing and classification system with automatic environment setup and **92% accuracy** on news article classification.
 
-[![Python Version](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)  
+[![Python Version](https://img.shields.io/badge/Python-3.08-blue)](https://www.python.org/)  
 [![NLTK Version](https://img.shields.io/badge/NLTK-3.8.1-green)](https://www.nltk.org/)
 
 ---

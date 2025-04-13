@@ -1,155 +1,204 @@
+Here’s your **fully updated `README.md`** – clean, Jupyter-Notebook based, and perfectly tailored for your new structure:
+
+---
+
 # CMD-Text-Preprocessor-Task
 
-# CMD Text Preprocessor Task
+A **command-line-compatible** and **Jupyter-based** text preprocessing and classification system with automatic environment setup and **92% accuracy** on news article classification.
 
-A command-line text preprocessing and classification system with automatic environment configuration. Handles common NLTK/Python path issues and achieves **92% accuracy** on news article classification.
-
-[![Python Version](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
+[![Python Version](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)  
 [![NLTK Version](https://img.shields.io/badge/NLTK-3.8.1-green)](https://www.nltk.org/)
 
-## Features
-- ✅ Text cleaning pipeline:
+---
+
+## 🚀 Features
+
+- ✅ Text preprocessing pipeline:
   - Lowercasing
-  - Special character removal
+  - Special character & number removal
   - Tokenization
   - Stopword filtering
-- 🚀 Built-in dataset (20 Newsgroups)
-- 📊 Model evaluation metrics:
+- 📦 Built-in dataset (20 Newsgroups)
+- 📈 Metrics:
   - Accuracy
-  - Precision
-  - Recall
+  - Precision, Recall
   - F1-Score
 - 🔄 Automatic NLTK data handling
+- 💬 User input-based predictions inside notebook
+- 🧠 Achieves ~92% model accuracy
 
-## Installation
+---
 
-1. **Clone Repository**
+## 📁 File Structure
 
+```
+CMD-Text-Preprocessor-Task/
+├── text_cleaner.py         # Core text cleaning functions
+├── train_model.ipynb       # Training pipeline notebook
+├── predict.ipynb           # Input and prediction notebook
+├── model.joblib            # Trained logistic regression model
+├── tfidf.joblib            # TF-IDF vectorizer
+├── requirements.txt        # All dependencies
+└── README.md               # This file
+```
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. 📥 Clone the Repo
+
+```bash
 git clone https://github.com/ParagAmolKulkarni/CMD-Text-Preprocessor-Task.git
 cd CMD-Text-Preprocessor-Task
+```
 
-## Install Dependencies
+---
+
+### 2. 📦 Install Dependencies
+
+```bash
 pip install -r requirements.txt
 python -m pip install --force-reinstall nltk
+```
 
-#Download NLTK Resources
-python -m nltk.download -d C:\Users\MONIKA\nltk_data punkt punkt_tab stopwords
+---
 
-#Run Training Pipeline
-python train_model.py
+### 3. 🔄 Download Required NLTK Resources
 
-Expected Output:
+```bash
+python -m nltk.downloader -d C:\Users\<YourUsername>\nltk_data punkt stopwords
+```
+
+Replace `<YourUsername>` accordingly.
+
+If you want to permanently set the path:
+
+```bash
+setx NLTK_DATA "%USERPROFILE%\nltk_data"
+```
+
+---
+
+## 🧪 Training the Model
+
+Open **`train_model.ipynb`** using Jupyter or VS Code:
+
+```bash
+jupyter notebook
+```
+
+➡️ Run all the cells to:
+- Preprocess sample text
+- Train the model using 20 Newsgroups data
+- Save the model (`model.joblib`) and vectorizer (`tfidf.joblib`)
+
+✅ Expected Output:
+```
 Sample Cleaned Text:
 re car palio need new piston rings  
 looking used copy tsr hockey game ibm pc contact  
-probability virus infection via blood transfusion  
+probability virus infection via blood transfusion
 
 Accuracy: 0.92
 Classification Report:
               precision    recall  f1-score   support
            0       0.93      0.91      0.92       198
            1       0.91      0.93      0.92       202
-
-#File Structure
-CMD-Text-Preprocessor-Task/
-├── text_cleaner.py     # Text preprocessing logic
-├── train_model.py      # Training pipeline
-├── model.joblib        # Trained classifier (3.5KB)
-├── tfidf.joblib        # TF-IDF vectorizer (15KB)
-├── requirements.txt    # Dependency list
-└── README.md           # This documentation
-
-
-Common Issues
-
-NLTK Resources Not Found:
-
-
-# Set permanent NLTK path (Windows)
-setx NLTK_DATA "%USERPROFILE%\nltk_data"
-Module Not Found Errors:
-
-
-# Force reinstall all dependencies
-pip install --force-reinstall -r requirements.txt
-VS Code Specific Issues:
-
-Press Ctrl+Shift+P → "Python: Select Interpreter"
-
-
-
-Process to input custom text into your program and get predictions:
-
-#Custom Text Prediction
-**Run with Command-Line Input**
-```bash
-python predict.py "Your text here with numbers 123 and symbols #@!"
-```
-
-Or Interactive Mode
-```bash
-python predict.py
-```
-# Then type/paste your text
-
-Example Output
-```bash
-Cleaned Text: text numbers symbols
-Predicted Class: Class 0
 ```
 
 ---
 
-### **3. Workflow for Users**
-1. **Train Model First** (One-Time)
+## 🔍 Making Predictions
+
+Open **`predict.ipynb`** using Jupyter Notebook or VS Code.
+
+➡️ You can:
+- Enter a custom input inside `input()` prompt
+- Or modify the variable `user_text` directly to auto-predict specific strings
+
+### Example:
+
+```python
+Input: "New NVIDIA graphics card with 8GB VRAM and ray tracing"
+Output:
+Cleaned Text: new nvidia graphics card vram ray tracing  
+Predicted Class: Class 0  # (e.g., comp.graphics)
+```
+
+---
+
+## 🧠 Text Cleaning Pipeline Overview
+
+### Input
+```text
+"COVID-19 VACCINE updates: 50% efficacy reported!"
+```
+
+### After Cleaning
+```text
+['covid', 'vaccine', 'updates', 'efficacy', 'reported']
+```
+
+---
+
+## 📤 Supported Input Modes
+
+| Method         | Example                                      | Use Case               |
+|----------------|----------------------------------------------|------------------------|
+| Manual Input   | Run `predict.ipynb` & enter text via prompt  | Custom predictions     |
+| Hardcoded Text | Modify `user_text` variable in notebook      | Quick tests or demos   |
+| File Input     | *(Extendable)* - Future feature for batch    | Multiple inputs later  |
+
+---
+
+## 🛠 Troubleshooting
+
+### NLTK Resources Not Found?
+
+Run:
 
 ```bash
-python train_model.py
+python -m nltk.downloader -d C:\Users\<YourUsername>\nltk_data punkt stopwords
 ```
-Make Predictions
+
+Or set path permanently:
 
 ```bash
-# Single prediction
-python predict.py "Heart disease risks in modern healthcare"
+setx NLTK_DATA "%USERPROFILE%\nltk_data"
 ```
-# Batch predictions (create a file later)
-# (You can extend this as needed)
 
-4. Input Handling Explained
-Text Cleaning Pipeline:
-```bash
-Input: "COVID-19 VACCINE updates: 50% efficacy reported!"
-Cleaned Text: ['covid', 'vaccine', 'updates', 'efficacy', 'reported']
-```
-Prediction Process:
-Uses same TF-IDF vectorizer from training
-Applies saved Logistic Regression model
-Returns class (0 or 1) based on training categories
+---
 
-5. Supported Input Formats
-Method	Example	Use Case
-CLI Argument	python predict.py "Your text"	Quick single predictions
-Interactive	python predict.py + type text	Multi-line inputs
-File Input (Add Later)	python predict.py < input.txt	Batch processing
+## ✅ Workflow Summary
 
-6. Error Handling
-The script automatically:
-Converts all text to lowercase
-Removes special characters/numbers
-Handles empty input
-Verifies model files exist
-Full Execution Demo
+### 1. Train the Model (first time only)
 
-# Train first (if not done)
 ```bash
-python train_model.py
+jupyter notebook
+# Open train_model.ipynb and run all cells
 ```
+
+### 2. Make Predictions
+
 ```bash
-# Test prediction
-python predict.py "New graphics card with 8GB VRAM"
+# Open predict.ipynb and run the input cell
 ```
-Output
-```bash
-Cleaned Text: new graphics card vram
-Predicted Class: Class 0  # comp.graphics
-```
+
+---
+
+## 🧠 Model Insights
+
+- TF-IDF vectorizer helps map word importance
+- Logistic Regression classifier trained on 2-class subset of 20 Newsgroups
+- You can easily swap in your own dataset
+
+---
+
+## 🔧 Future Extensions
+
+- Batch input from file
+- Add GUI via Flask or Gradio
+- Expand to multi-class classification
+
+---
